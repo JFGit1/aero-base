@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: davis-sans, sans-serif;
+		font-size: 18px;
+	}
+	p {
+		margin-bottom: 1rem;
+	}
+}

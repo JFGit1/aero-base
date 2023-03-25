@@ -20,5 +20,16 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.9"
-  }
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.5",
+    "tailwindcss": "^3.2.7"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/JFGit1/aero-base",
+  "author": "JF Git 1 <juliofarias+git1@gmail.com>",
+  "license": "MIT"
 }

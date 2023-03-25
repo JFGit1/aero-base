@@ -1,18 +1,18 @@
 import Link from 'next/link';
 
-import { HeaderWrapper } from './styles.js';
+/* import { HeaderWrapper } from './styles.js'; */
 
 export function Header() {
 	return (
-		<HeaderWrapper>
-			<div className='headerContent'>
-				<h1>
-					<Link href='/' scroll={false} prefetch={false}>
+		<div className='fixed top-0 left-0 z-50 w-full bg-slate-800'>
+			<header className='container mx-auto flex items-center justify-between py-4'>
+				<h1 className='text-5xl font-bold leading-none'>
+					<Link className='text-sky-500' href='/' scroll={false} prefetch={false}>
 						AERO
 					</Link>
 				</h1>
-				<nav className='navMenu'>
-					<ul>
+				<nav>
+					<ul className='flex gap-5 text-base'>
 						<li>
 							<Link href='/' scroll={false} prefetch={false}>
 								Home
@@ -25,7 +25,7 @@ export function Header() {
 						</li>
 					</ul>
 				</nav>
-			</div>
-		</HeaderWrapper>
+			</header>
+		</div>
 	);
 }

@@ -5,7 +5,7 @@ import LayoutMotion from '@/components/LayoutMotion';
 /* import axios from 'axios'; { characterResults }*/
 
 export default function AboutUs() {
-	console.log('load test');
+	console.log('load about us');
 	//console.log(characterResults);
 
 	/* const apiAxios = axios.create({
@@ -33,9 +33,9 @@ export default function AboutUs() {
 			<Seo title='About Us | Aero Design' description='This is the About Us page' />
 
 			<LayoutMotion>
-				<main>
+				<main className='container mx-auto pt-28'>
 					<div>
-						<h1>Test</h1>
+						<h1 className='mb-4 text-3xl'>About Us</h1>
 
 						{/* <>{error && <p>Oops... Something went wrong.</p>}</>
 						<>{isFetching && <p>Loading...</p>}</> */}
