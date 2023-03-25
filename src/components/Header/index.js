@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { MenuLink } from '../MainMenu/MenuLink';
 
 export function Header() {
 	return (
-		<div className='fixed top-0 left-0 z-50 w-full bg-slate-800 px-4 '>
+		<div className='top-0 left-0 z-50 w-full bg-slate-800 px-4 md:fixed '>
 			<header className='container mx-auto flex flex-col items-center py-4 md:flex-row md:justify-between'>
 				<h1 className='text-5xl font-bold leading-none'>
 					<Link className='text-sky-500' href='/' scroll={false} prefetch={false}>
@@ -10,16 +11,12 @@ export function Header() {
 					</Link>
 				</h1>
 				<nav>
-					<ul className='flex gap-5 text-base'>
+					<ul className='m-0 mt-2 flex gap-5 p-0 text-base md:mt-0'>
 						<li>
-							<Link href='/' scroll={false} prefetch={false}>
-								Home
-							</Link>
+							<MenuLink label='Home' url='/' />
 						</li>
 						<li>
-							<Link href='/about-us' scroll={false} prefetch={false}>
-								About Us
-							</Link>
+							<MenuLink label='About Us' url='/about-us' />
 						</li>
 					</ul>
 				</nav>
