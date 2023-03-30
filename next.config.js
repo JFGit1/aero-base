@@ -5,6 +5,14 @@ const nextConfig = {
 
 //module.exports = nextConfig;
 module.exports = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'forell-lab.amzb.securityserve.com',
+			},
+		],
+	},
 	compiler: {
 		// Enables the styled-components SWC transform
 		styledComponents: true,

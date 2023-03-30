@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MenuLink } from '../MainMenu/MenuLink';
+import { MenuLink } from '../MenuLink';
 
 export function Header() {
 	return (
@@ -17,6 +17,9 @@ export function Header() {
 						</li>
 						<li>
 							<MenuLink label='About Us' url='/about-us' />
+						</li>
+						<li>
+							<MenuLink label='Projects' url='/projects' />
 						</li>
 					</ul>
 				</nav>
