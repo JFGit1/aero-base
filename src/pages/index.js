@@ -2,55 +2,102 @@ import Seo from '@/components/Seo';
 import { Footer } from '@/components/Footer';
 import LayoutMotion from '@/components/LayoutMotion';
 
-import Image from 'next/image';
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment, useState } from 'react';
+import { ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { Header } from '@/components/Header';
+import TransitionEffect from '@/components/TransitionEffect';
 
 export default function Home() {
-	console.log('load home');
+	//console.log('load home');
+
+	let [isOpen, setIsOpen] = useState(false);
+
+	function openModal() {
+		setIsOpen(true);
+	}
+	function closeModal() {
+		setIsOpen(false);
+	}
+
 	return (
-		<div className='px-4 pt-8 md:pt-28 '>
-			<LayoutMotion>
-				<Seo title='Aero Design' desc='Content of the homepage.' />
-				<main className='container mx-auto'>
-					<h1 className='mb-4 text-3xl'>Welcome</h1>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus ante et pellentesque efficitur. Cras viverra sagittis metus, eu volutpat odio malesuada
-						ac. Aliquam egestas vulputate lacus quis lacinia. Aenean enim nisi, lacinia ut fermentum id, porttitor eu neque. In eget massa nulla.{' '}
-					</p>
-					<div className='mt-5 mb-7 flex flex-col gap-6 lg:flex-row '>
-						{cardBox(
-							'/images/image-01.jpg',
-							'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus laoreet enim eu nunc dignissim iaculis non eget enim curabitur.',
-							'Lorem Ipsum Dolor',
-							'Vivamus Elit'
-						)}
-						{cardBox(
-							'/images/image-01.jpg',
-							'Vivamus laoreet enim eu nunc dignissim iaculis non eget enim. Curabitur dui sapien, scelerisque vitae turpis vitae, commodo consectetur erat.',
-							'Duis Consectetur',
-							'Phasellus eget'
-						)}
-					</div>
-				</main>
-				<Footer />
-			</LayoutMotion>
-		</div>
+		<>
+			<TransitionEffect />
+
+			<div className='px-4 pt-8 md:pt-28 '>
+				<Header />
+				<LayoutMotion>
+					<Seo title='Aero Design' desc='Content of the homepage.' />
+					<main className='container mx-auto'>
+						<h1 className='mb-4 flex items-center text-3xl'>
+							<ShieldCheckIcon className='mr-2 h-8 w-8 text-amber-300' />
+							Welcome
+						</h1>
+						<button
+							type='button'
+							onClick={openModal}
+							className='rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
+							Open Modal
+						</button>
+					</main>
+					<Footer />
+
+					<Transition appear show={isOpen} as={Fragment}>
+						<Dialog
+							as='div'
+							className='relative z-10'
+							onClose={closeModal}>
+							<Transition.Child
+								as={Fragment}
+								enter='ease-out duration-300'
+								enterFrom='opacity-0'
+								enterTo='opacity-100'
+								leave='ease-in duration-200'
+								leaveFrom='opacity-100'
+								leaveTo='opacity-0'>
+								<div className='fixed inset-0 bg-black bg-opacity-20' />
+							</Transition.Child>
+
+							<div className='fixed inset-0 overflow-y-auto'>
+								<div className='flex min-h-full items-center justify-center p-4 text-center'>
+									<Transition.Child
+										as={Fragment}
+										enter='ease-out duration-300'
+										enterFrom='opacity-0 scale-95'
+										enterTo='opacity-100 scale-100'
+										leave='ease-in duration-200'
+										leaveFrom='opacity-100 scale-100'
+										leaveTo='opacity-0 scale-95'>
+										<Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
+											<Dialog.Title
+												as='h3'
+												className=' text-lg font-medium leading-6 text-black'>
+												Payment successful
+											</Dialog.Title>
+											<div className='mt-2'>
+												<p className='text-gray-500 text-sm text-black'>
+													Your payment has been successfully
+													submitted. We’ve sent you an email with
+													all of the details of your order.
+												</p>
+											</div>
+
+											<div className='mt-4'>
+												<button
+													type='button'
+													className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+													onClick={closeModal}>
+													Got it, thanks!
+												</button>
+											</div>
+										</Dialog.Panel>
+									</Transition.Child>
+								</div>
+							</div>
+						</Dialog>
+					</Transition>
+				</LayoutMotion>
+			</div>
+		</>
 	);
 }
-
-const cardBox = (image, desc, name, jobTitle) => {
-	console.log(image);
-	return (
-		<figure className='overflow-hidden rounded-xl bg-slate-100 p-8 dark:bg-slate-800 md:flex md:p-0'>
-			<Image className='mx-auto h-24 w-24 rounded-full md:h-auto md:w-48 md:rounded-none ' src={image} alt='' width='384' height='512' />
-			<div className='space-y-4 pt-6 text-center md:p-8 md:text-left'>
-				<blockquote>
-					<p className='text-lg font-light'>{desc}</p>
-				</blockquote>
-				<figcaption className='font-medium'>
-					<div className='text-sky-500 dark:text-sky-400'>{name}</div>
-					<div className='text-slate-700 dark:text-slate-500'>{jobTitle}</div>
-				</figcaption>
-			</div>
-		</figure>
-	);
-};

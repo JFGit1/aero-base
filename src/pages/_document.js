@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html lang='en'>
+			<Html lang='en' className='scroll-smooth '>
 				<link rel='stylesheet' href='https://use.typekit.net/seg4gmq.css' />
 				<Head />
 				<body className='cursor-default bg-slate-700 text-base font-light text-white'>

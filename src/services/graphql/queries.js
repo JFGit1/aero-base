@@ -1,5 +1,26 @@
 import { gql } from '@apollo/client';
 
+export const MAIN_MENU = gql`
+	query MainMenu {
+		menu(id: "2", idType: DATABASE_ID) {
+			menuItems(where: { parentId: "0" }) {
+				nodes {
+					uri
+					label
+					id
+					childItems {
+						nodes {
+							label
+							uri
+							id
+						}
+					}
+				}
+			}
+		}
+	}
+`;
+
 export const PAGES_BY_SLUG = gql`
 	query PageByIdQuery($id: ID!) {
 		page(idType: URI, id: $id) {
@@ -33,6 +54,28 @@ export const PROJECT_PAGE = gql`
 		}
 		allSettings {
 			generalSettingsUrl
+		}
+	}
+`;
+
+export const ALL_POSTS = gql`
+	query AllPosts {
+		posts(where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }) {
+			nodes {
+				databaseId
+				title
+				slug
+				excerpt
+				featuredImage {
+					node {
+						sourceUrl
+						mediaDetails {
+							height
+							width
+						}
+					}
+				}
+			}
 		}
 	}
 `;
