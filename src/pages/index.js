@@ -30,7 +30,7 @@ export default function Home() {
 					<Seo title='Aero Design' desc='Content of the homepage.' />
 					<main className='container mx-auto'>
 						<h1 className='mb-4 flex items-center text-3xl'>
-							<ShieldCheckIcon className='mr-2 h-8 w-8 text-amber-300' />
+							<ShieldCheckIcon className='mr-2 h-8 w-8 text-orange' />
 							Welcome
 						</h1>
 						<button

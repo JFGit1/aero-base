@@ -4,15 +4,15 @@ import { MenuLink } from '../MenuLink';
 
 export function Header() {
 	return (
-		<div className='top-0 left-0 z-20 w-full bg-slate-800 px-4 md:fixed '>
+		<div className='top-0 left-0 z-20 w-full bg-white px-4 shadow md:fixed'>
 			<header className='container mx-auto flex flex-col items-center py-4 md:flex-row md:justify-between'>
 				<motion.h1
 					className='text-5xl font-bold leading-none'
-					whileHover={{ scale: 1.05 }}
+					whileHover={{ scale: 1.15 }}
 					transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 					whileTap={{ scale: 0.95 }}>
 					<Link
-						className='text-sky-500'
+						className='text-orange'
 						href='/'
 						scroll={false}
 						prefetch={false}>
