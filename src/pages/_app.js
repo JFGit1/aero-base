@@ -14,6 +14,7 @@ const client = new ApolloClient({
 export default function App({ Component, pageProps, router }) {
 	return (
 		<ApolloProvider client={client}>
+			<Header />
 			<AnimatePresence
 				mode='wait'
 				initial={false}

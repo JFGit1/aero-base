@@ -31,7 +31,7 @@ export function Header() {
 							<MenuLink label='Projects' url='/projects' />
 						</li>
 						<li>
-							<MenuLink label='Cards' url='/cards' />
+							<MenuLink label='Test' url='/test' />
 						</li>
 					</ul>
 				</nav>
