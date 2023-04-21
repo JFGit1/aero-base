@@ -28,11 +28,11 @@ export function Header() {
 							<MenuLink label='About Us' url='/about-us' />
 						</li>
 						<li>
+							<MenuLink label='Staff' url='/about-us/staff' />
+						</li>
+						<li>
 							<MenuLink label='Projects' url='/projects' />
 						</li>
-						{/* <li>
-							<MenuLink label='Test' url='/test' />
-						</li> */}
 					</ul>
 				</nav>
 			</header>
